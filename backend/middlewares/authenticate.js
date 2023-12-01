@@ -9,7 +9,6 @@ function authenticate(req, res, next) {
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
     if (err) return res.sendStatus(403);
-    // console.log(decoded);
     req.user = {
       user_email: decoded.user_email,
       user_name: decoded.user_name,
